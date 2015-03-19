@@ -169,6 +169,8 @@
         cell = [[WechatMomentCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"WechatMomentCell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell setTweetInfo:[tweetsArr objectAtIndex:indexPath.row]];
+    cell.tag = indexPath.row;
+    
     return cell;
 }
 
@@ -187,5 +189,6 @@
     
 }
 
+ 
 
 @end

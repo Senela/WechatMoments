@@ -10,10 +10,17 @@
 #import "WechatModel.h"
 #import "ImageContentView.h"
 
+
+
 @interface WechatMomentCell : UITableViewCell<ImageContentViewDelegate>
 {
     UIImageView  *lineImageView;
+    
+    CGFloat  contentLabelHeight;
+    CGFloat  imageContentHeight;
+    CGFloat replayContentHeight;
 }
+
 
 @property (nonatomic, strong) TweetModel *tweetInfo;
 
@@ -21,6 +28,9 @@
 @property (nonatomic, strong)UILabel     *nameLabel;
 @property (nonatomic, strong)UILabel     *contentLabel;
 @property (nonatomic, strong)ImageContentView      *imageContent;
+
+@property (nonatomic, strong)UITableView   *replayTableView;
+
 
 -(CGFloat)getCellHeightByContent:(TweetModel *)tweetInfo;
 

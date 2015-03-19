@@ -34,7 +34,8 @@
     [self GET:url parameters:parameter success:^(NSURLSessionDataTask * __unused task, id responseObject)
      {
          
-         NSLog(@"%@--- SuccessBlock:%@",requestName, responseObject);
+//         NSLog(@"%@--- SuccessBlock:%@",requestName, responseObject);
+         NSLog(@"%@--- SuccessBlock ",requestName);
          
         success(responseObject);
          

@@ -8,8 +8,16 @@
 
 #import "WechatMomentCell.h"
 #import "UIImageView+AFNetworking.h"
+#import "ReplyContentCell.h"
+
+@interface WechatMomentCell ()<UITableViewDataSource, UITableViewDelegate>
+{
+    ReplyContentCell  *replayCellTemp;
+}
+@end
 
 @implementation WechatMomentCell
+
 
 - (void)awakeFromNib {
     // Initialization code
@@ -36,14 +44,13 @@
 
 -(void)setUp
 {
+    
     for(UIView *subView in self.contentView.subviews)
         [subView removeFromSuperview];
     
     for(UIView *subView in self.imageContent.subviews)
         [subView removeFromSuperview];
-
-    _imageContent = [[ImageContentView alloc] init];
-    [self.contentView addSubview:_imageContent];
+    
     
     lineImageView = [[UIImageView alloc] init];
     lineImageView.backgroundColor = LightGray_BgColor;
@@ -115,7 +122,79 @@
                                                                  attribute:NSLayoutAttributeTrailing
                                                                 multiplier:1.0
                                                                   constant:0]];
+    
+    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:_contentLabel
+                                                                 attribute:NSLayoutAttributeHeight
+                                                                 relatedBy:NSLayoutRelationGreaterThanOrEqual
+                                                                    toItem:_nameLabel
+                                                                 attribute:NSLayoutAttributeHeight
+                                                                multiplier:0
+                                                                  constant:21]];
+    
 
+    _imageContent = [[ImageContentView alloc] init];
+    [_imageContent setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.contentView addSubview:_imageContent];
+    
+    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:_imageContent
+                                                                 attribute:NSLayoutAttributeLeading
+                                                                 relatedBy:NSLayoutRelationEqual
+                                                                    toItem:_nameLabel
+                                                                 attribute:NSLayoutAttributeLeading
+                                                                multiplier:1.0
+                                                                  constant:0]];
+    
+    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:_imageContent
+                                                                 attribute:NSLayoutAttributeTrailing
+                                                                 relatedBy:NSLayoutRelationEqual
+                                                                    toItem:_nameLabel
+                                                                 attribute:NSLayoutAttributeTrailing
+                                                                multiplier:1.0
+                                                                  constant:0]];
+    
+    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:_imageContent
+                                                                 attribute:NSLayoutAttributeTop
+                                                                 relatedBy:NSLayoutRelationEqual
+                                                                    toItem:_contentLabel
+                                                                 attribute:NSLayoutAttributeBottom
+                                                                multiplier:1.0
+                                                                  constant:0]];
+    
+
+    _replayTableView = [[UITableView alloc] init];
+    [_replayTableView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    _replayTableView.backgroundColor = LightGray_BgColor;
+    _replayTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _replayTableView.tableFooterView = [[UIView alloc] init];
+    _replayTableView.dataSource = self;
+    _replayTableView.delegate = self;
+    [self.contentView addSubview:_replayTableView];
+    
+    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:_replayTableView
+                                                                 attribute:NSLayoutAttributeLeading
+                                                                 relatedBy:NSLayoutRelationEqual
+                                                                    toItem:_nameLabel
+                                                                 attribute:NSLayoutAttributeLeading
+                                                                multiplier:1.0
+                                                                  constant:0]];
+    
+    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:_replayTableView
+                                                                 attribute:NSLayoutAttributeTrailing
+                                                                 relatedBy:NSLayoutRelationEqual
+                                                                    toItem:_nameLabel
+                                                                 attribute:NSLayoutAttributeTrailing
+                                                                multiplier:1.0
+                                                                  constant:0]];
+    
+    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:_replayTableView
+                                                                 attribute:NSLayoutAttributeTop
+                                                                 relatedBy:NSLayoutRelationEqual
+                                                                    toItem:_imageContent
+                                                                 attribute:NSLayoutAttributeBottom
+                                                                multiplier:1.0
+                                                                  constant:0]];
+    
+    replayCellTemp = [[ReplyContentCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ReplyContentCell"];
 }
 
 
@@ -139,38 +218,101 @@
     frame.size.height = size.height;
     frame.size.width = _nameLabel.frame.size.width;
     [_contentLabel setFrame:frame];
+    contentLabelHeight = size.height;
     
-    _imageContent.delegate = self;
-    NSMutableArray *imageArr = [NSMutableArray array];
-    [_tweetInfo.images enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        ImageModel *image = (ImageModel *)obj;
-//        [imageArr addObject:@"http://info.thoughtworks.com/rs/thoughtworks2/images/glyph_badge.png"]; //image.url];
+    
+    if(_tweetInfo.images.count != 0)
+    {
+        _imageContent.delegate = self;
+        NSMutableArray *imageArr = [NSMutableArray array];
+        [_tweetInfo.images enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop)
+        {
+                     ImageModel *image = (ImageModel *)obj;
+                    [imageArr addObject:image.url];
+        }];
         
-        [imageArr addObject:image.url];
-    }];
+        [_imageContent  setImageArr:imageArr];
+        imageContentHeight = [_imageContent getImageContentHeight];
+        
+        _imageContent.hidden = NO;
+    }
+    else
+    {
+        imageContentHeight = 0;
+        _imageContent.hidden = YES;
+    }
     
-    [_imageContent  setImageArr:imageArr];
+    CGRect rect = _imageContent.frame;
+    rect.size.height = imageContentHeight;
+    _imageContent.frame = rect;
     
+    [self initReplyTableView];
 }
 
-
+-(void)initReplyTableView
+{
+    if(_tweetInfo.comments.count == 0)
+    {
+        replayContentHeight = 0;
+        _replayTableView.hidden = YES;
+    }
+    else
+    {
+        _replayTableView.hidden = NO;
+        [_replayTableView reloadData];
+        
+    }
+    
+}
 
 -(CGFloat)getCellHeightByContent:(TweetModel *)tweetInfo
 {
     [self setTweetInfo:tweetInfo];
     
-    CGFloat height = _nameLabel.frame.size.height+_nameLabel.frame.origin.y + _contentLabel.frame.size.height;
+    CGFloat height = _nameLabel.frame.size.height+_nameLabel.frame.origin.y + contentLabelHeight;
     if(height < 60)
         height = 60;
     
-    height = height + _imageContent.frame.size.width;
+    height = height + imageContentHeight +replayContentHeight +20;
     
     return height;
 }
 
 #pragma mark --ImageContentView Delegate
--(void)updateImageContentViewHeight:(ImageContentView *)height
+//-(void)updateImageContentViewHeight:(ImageContentView *)height
+//{
+//    _imageContent.frame = height.frame;
+//    imageContentHeight = _imageContent.frame.size.height;
+//    
+//}
+
+
+
+#pragma mark --- UITableViewDataSource
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    _imageContent.frame = height.frame;
+    [replayCellTemp setCommentInfo:[_tweetInfo.comments objectAtIndex:indexPath.row]];
+    return replayCellTemp.commentCellHeight;
 }
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return _tweetInfo.comments.count;
+}
+
+// Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
+// Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ReplyContentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ReplyContentCell"];
+    if(!cell)
+        cell = [[ReplyContentCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ReplyContentCell"];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    [cell setCommentInfo:[_tweetInfo.comments objectAtIndex:indexPath.row]];
+    cell.backgroundColor = [UIColor redColor];
+    
+    return cell;
+}
+
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14A392681ABB3A2F00555EB9 /* ReplyContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A392671ABB3A2F00555EB9 /* ReplyContentCell.m */; };
 		3BFEC831FE43C2D7B0567E75 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B1B43D91A25D9FC1A3AB125 /* libPods.a */; };
 		451969751ABAB3A800A187C3 /* WechatMomentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 451969741ABAB3A800A187C3 /* WechatMomentCell.m */; };
 		451969781ABAB3ED00A187C3 /* HttpClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 451969771ABAB3ED00A187C3 /* HttpClientManager.m */; };
@@ -33,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		14A392661ABB3A2F00555EB9 /* ReplyContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReplyContentCell.h; sourceTree = "<group>"; };
+		14A392671ABB3A2F00555EB9 /* ReplyContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReplyContentCell.m; sourceTree = "<group>"; };
 		3B1B43D91A25D9FC1A3AB125 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		451969731ABAB3A800A187C3 /* WechatMomentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatMomentCell.h; sourceTree = "<group>"; };
 		451969741ABAB3A800A187C3 /* WechatMomentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WechatMomentCell.m; sourceTree = "<group>"; };
@@ -131,6 +134,8 @@
 				451969741ABAB3A800A187C3 /* WechatMomentCell.m */,
 				451969811ABAEED500A187C3 /* ImageContentView.h */,
 				451969821ABAEED500A187C3 /* ImageContentView.m */,
+				14A392661ABB3A2F00555EB9 /* ReplyContentCell.h */,
+				14A392671ABB3A2F00555EB9 /* ReplyContentCell.m */,
 			);
 			path = CommonView;
 			sourceTree = "<group>";
@@ -339,6 +344,7 @@
 				451969751ABAB3A800A187C3 /* WechatMomentCell.m in Sources */,
 				451969831ABAEED500A187C3 /* ImageContentView.m in Sources */,
 				4589BDCA1ABA83C200DA88FC /* AppDelegate.m in Sources */,
+				14A392681ABB3A2F00555EB9 /* ReplyContentCell.m in Sources */,
 				451969801ABAC86400A187C3 /* MainViewController.m in Sources */,
 				451969781ABAB3ED00A187C3 /* HttpClientManager.m in Sources */,
 				4589BDC71ABA83C200DA88FC /* main.m in Sources */,

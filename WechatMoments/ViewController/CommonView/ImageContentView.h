@@ -23,9 +23,13 @@
 @end
 
 @interface ImageContentView : UIView
-
+{
+    NSMutableArray *imageViewArr;
+}
 @property (nonatomic, assign)id <ImageContentViewDelegate> delegate;
 
 @property (nonatomic, strong)NSArray  *imageArr;
+
+-(CGFloat)getImageContentHeight;
 
 @end
