@@ -49,6 +49,7 @@
 -(void)layoutOneImageView:(NSString *)imageStr
 {
     __block UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, Image_MaxWidth, Image_MaxHeight)];
+    self.frame = imageView.frame;
     
     __weak UIImageView *oneImageView = imageView;
     [oneImageView setImageWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:imageStr]] placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image)
@@ -70,6 +71,7 @@
          oneImageView.frame=CGRectMake(0, 0, width, height);
          oneImageView.image=image;
          
+         
          [self uploadImageContentHeight];
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
         
@@ -78,6 +80,8 @@
 
 -(void)layoutLessThreeImageView
 {
+    self.frame = CGRectMake(0, 0, (Image_Width+Image_Margin)*2, (Image_Margin+Image_Height));
+    
     int count=[_imageArr count];
     for(int i=0;i<count;i++)
     {
@@ -88,11 +92,12 @@
         [imageView addSubview:indicator];
         [indicator startAnimating];
         
-         __block UIImageView * imageViewTemp =imageView;
+         __weak UIImageView * imageViewTemp =imageView;
          [imageViewTemp setImageWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[_imageArr objectAtIndex:i]]] placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
              [indicator stopAnimating];
              [indicator removeFromSuperview];
              
+             imageViewTemp.image = image;
         } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
             
         }];
@@ -105,6 +110,8 @@
 
 -(void)layoutFourImageView
 {
+    self.frame = CGRectMake(0, 0, (Image_Width+Image_Margin)*2, (Image_Margin+Image_Height)*2);
+    
     int count=[_imageArr count];
     for(int i=0;i<count;i++)
     {
@@ -115,11 +122,12 @@
         [imageView addSubview:indicator];
         [indicator startAnimating];
         
-        __block UIImageView * imageViewTemp =imageView;
+        __weak UIImageView * imageViewTemp =imageView;
         [imageViewTemp setImageWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[_imageArr objectAtIndex:i]]] placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
             [indicator stopAnimating];
             [indicator removeFromSuperview];
             
+            imageViewTemp.image = image;
         } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
             
         }];
@@ -131,7 +139,10 @@
 
 -(void)layoutMoreImageView
 {
+    
     int count=[_imageArr count];
+    self.frame = CGRectMake(0, 0, (Image_Width+Image_Margin)*(count%3), (Image_Margin+Image_Height)*(count%3));
+    
     for(int i=0;i<count;i++)
     {
         UIImageView * imageView=[[UIImageView alloc]initWithFrame:CGRectMake((Image_Width+Image_Margin)*(i%3),(Image_Margin+Image_Height)*(i/3), Image_Width, Image_Height)];
@@ -141,11 +152,12 @@
         [imageView addSubview:indicator];
         [indicator startAnimating];
         
-        __block UIImageView * imageViewTemp =imageView;
+        __weak UIImageView * imageViewTemp =imageView;
         [imageViewTemp setImageWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[_imageArr objectAtIndex:i]]] placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
             [indicator stopAnimating];
             [indicator removeFromSuperview];
             
+            imageViewTemp.image = image;
         } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
             
         }];
@@ -156,6 +168,8 @@
 
 -(void)uploadImageContentHeight
 {
+    self.backgroundColor = [UIColor redColor];
+    
     if(self.delegate&&[ self.delegate respondsToSelector:@selector(updateImageContentViewHeight:)])
         [self.delegate updateImageContentViewHeight:self];
 }

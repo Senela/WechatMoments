@@ -6,16 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WechatMoments/ViewController/CommonView/WechatMomentCell.m"
-            timestampString = "448461397.809236"
+            timestampString = "448462371.677126"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
-            landmarkName = "-getCellHeightByContent:"
+            startingLineNumber = "174"
+            endingLineNumber = "174"
+            landmarkName = "-updateImageContentViewHeight:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

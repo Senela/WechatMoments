@@ -41,7 +41,9 @@
     
     for(UIView *subView in self.imageContent.subviews)
         [subView removeFromSuperview];
-    
+
+    _imageContent = [[ImageContentView alloc] init];
+    [self.contentView addSubview:_imageContent];
     
     lineImageView = [[UIImageView alloc] init];
     lineImageView.backgroundColor = LightGray_BgColor;
@@ -142,6 +144,8 @@
     NSMutableArray *imageArr = [NSMutableArray array];
     [_tweetInfo.images enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         ImageModel *image = (ImageModel *)obj;
+//        [imageArr addObject:@"http://info.thoughtworks.com/rs/thoughtworks2/images/glyph_badge.png"]; //image.url];
+        
         [imageArr addObject:image.url];
     }];
     
@@ -158,6 +162,8 @@
     CGFloat height = _nameLabel.frame.size.height+_nameLabel.frame.origin.y + _contentLabel.frame.size.height;
     if(height < 60)
         height = 60;
+    
+    height = height + _imageContent.frame.size.width;
     
     return height;
 }
