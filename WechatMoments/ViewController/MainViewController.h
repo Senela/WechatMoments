@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MainViewController.h
 //  WechatMoments
 //
 //  Created by myqu on 15/3/19.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface MainViewController : UIViewController
 
 @end
-

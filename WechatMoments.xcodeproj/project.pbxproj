@@ -11,9 +11,11 @@
 		451969751ABAB3A800A187C3 /* WechatMomentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 451969741ABAB3A800A187C3 /* WechatMomentCell.m */; };
 		451969781ABAB3ED00A187C3 /* HttpClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 451969771ABAB3ED00A187C3 /* HttpClientManager.m */; };
 		4519697B1ABAB45E00A187C3 /* WechatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4519697A1ABAB45E00A187C3 /* WechatModel.m */; };
+		4519697D1ABAC6BD00A187C3 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4519697C1ABAC6BD00A187C3 /* Default-568h@2x.png */; };
+		451969801ABAC86400A187C3 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4519697F1ABAC86400A187C3 /* MainViewController.m */; };
+		451969831ABAEED500A187C3 /* ImageContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 451969821ABAEED500A187C3 /* ImageContentView.m */; };
 		4589BDC71ABA83C200DA88FC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4589BDC61ABA83C200DA88FC /* main.m */; };
 		4589BDCA1ABA83C200DA88FC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4589BDC91ABA83C200DA88FC /* AppDelegate.m */; };
-		4589BDCD1ABA83C200DA88FC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4589BDCC1ABA83C200DA88FC /* ViewController.m */; };
 		4589BDD01ABA83C200DA88FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4589BDCE1ABA83C200DA88FC /* Main.storyboard */; };
 		4589BDD21ABA83C200DA88FC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4589BDD11ABA83C200DA88FC /* Images.xcassets */; };
 		4589BDD51ABA83C200DA88FC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4589BDD31ABA83C200DA88FC /* LaunchScreen.xib */; };
@@ -38,13 +40,16 @@
 		451969771ABAB3ED00A187C3 /* HttpClientManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpClientManager.m; sourceTree = "<group>"; };
 		451969791ABAB45E00A187C3 /* WechatModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatModel.h; sourceTree = "<group>"; };
 		4519697A1ABAB45E00A187C3 /* WechatModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WechatModel.m; sourceTree = "<group>"; };
+		4519697C1ABAC6BD00A187C3 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		4519697E1ABAC86400A187C3 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		4519697F1ABAC86400A187C3 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		451969811ABAEED500A187C3 /* ImageContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageContentView.h; sourceTree = "<group>"; };
+		451969821ABAEED500A187C3 /* ImageContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageContentView.m; sourceTree = "<group>"; };
 		4589BDC11ABA83C200DA88FC /* WechatMoments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WechatMoments.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4589BDC51ABA83C200DA88FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4589BDC61ABA83C200DA88FC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4589BDC81ABA83C200DA88FC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4589BDC91ABA83C200DA88FC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4589BDCB1ABA83C200DA88FC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		4589BDCC1ABA83C200DA88FC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		4589BDCF1ABA83C200DA88FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4589BDD11ABA83C200DA88FC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4589BDD41ABA83C200DA88FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -113,6 +118,8 @@
 			isa = PBXGroup;
 			children = (
 				451969721ABAB3A800A187C3 /* CommonView */,
+				4519697E1ABAC86400A187C3 /* MainViewController.h */,
+				4519697F1ABAC86400A187C3 /* MainViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -122,6 +129,8 @@
 			children = (
 				451969731ABAB3A800A187C3 /* WechatMomentCell.h */,
 				451969741ABAB3A800A187C3 /* WechatMomentCell.m */,
+				451969811ABAEED500A187C3 /* ImageContentView.h */,
+				451969821ABAEED500A187C3 /* ImageContentView.m */,
 			);
 			path = CommonView;
 			sourceTree = "<group>";
@@ -154,8 +163,6 @@
 				451969711ABAB3A800A187C3 /* ViewController */,
 				4589BDC81ABA83C200DA88FC /* AppDelegate.h */,
 				4589BDC91ABA83C200DA88FC /* AppDelegate.m */,
-				4589BDCB1ABA83C200DA88FC /* ViewController.h */,
-				4589BDCC1ABA83C200DA88FC /* ViewController.m */,
 				4589BDCE1ABA83C200DA88FC /* Main.storyboard */,
 				4589BDD11ABA83C200DA88FC /* Images.xcassets */,
 				4589BDD31ABA83C200DA88FC /* LaunchScreen.xib */,
@@ -167,6 +174,7 @@
 		4589BDC41ABA83C200DA88FC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4519697C1ABAC6BD00A187C3 /* Default-568h@2x.png */,
 				4589BDC51ABA83C200DA88FC /* Info.plist */,
 				4589BDC61ABA83C200DA88FC /* main.m */,
 			);
@@ -274,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4589BDD01ABA83C200DA88FC /* Main.storyboard in Resources */,
+				4519697D1ABAC6BD00A187C3 /* Default-568h@2x.png in Resources */,
 				4589BDD51ABA83C200DA88FC /* LaunchScreen.xib in Resources */,
 				4589BDD21ABA83C200DA88FC /* Images.xcassets in Resources */,
 			);
@@ -326,10 +335,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4589BDCD1ABA83C200DA88FC /* ViewController.m in Sources */,
 				4519697B1ABAB45E00A187C3 /* WechatModel.m in Sources */,
 				451969751ABAB3A800A187C3 /* WechatMomentCell.m in Sources */,
+				451969831ABAEED500A187C3 /* ImageContentView.m in Sources */,
 				4589BDCA1ABA83C200DA88FC /* AppDelegate.m in Sources */,
+				451969801ABAC86400A187C3 /* MainViewController.m in Sources */,
 				451969781ABAB3ED00A187C3 /* HttpClientManager.m in Sources */,
 				4589BDC71ABA83C200DA88FC /* main.m in Sources */,
 			);

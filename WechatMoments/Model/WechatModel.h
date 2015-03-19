@@ -8,6 +8,20 @@
 
 #import "JSONModel.h"
 
+#pragma mark - 屏幕 宽度、高度
+
+#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
+#define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
+
+
+#pragma mark -  RGB色值
+#define RGB(r,g,b)          [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1]
+#define RGBA(r,g,b,a)       [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
+
+#define LightGray_BgColor  RGB(221, 221, 221)
+#define Blue_NameColor     RGB(100, 114, 154)
+
+
 #define NET_BASEURL  @"http://thoughtworks-ios.herokuapp.com"
 
 @interface WechatModel : JSONModel

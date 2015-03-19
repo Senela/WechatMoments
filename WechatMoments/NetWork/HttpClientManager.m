@@ -60,7 +60,7 @@
         UserInfoModel *userInfo = [[UserInfoModel alloc] initWithDictionary:response error:&error];
         
         if(userInfo)
-            success(response);
+            success(userInfo);
         else
             failure(error);
     } failure:^(id responseObject) {
